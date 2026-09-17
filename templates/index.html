@@ -17,17 +17,19 @@
         <button type="submit">Send cookie</button>
     </form>
     <br>
-    {% if result.status == "VALID" %}
-        <div>
-            YES<br>
-            {{ result.username }}
-        </div>
-    {% else %}
-        <div>
-            NO<br>
-            {{ result.status }}<br>
-            {{ result.message }}
-        </div>
+    {% if result %}
+        {% if result.status == "VALID" %}
+            <div>
+                YES<br>
+                {{ result.username }}
+            </div>
+        {% else %}
+            <div>
+                NO<br>
+                {{ result.status }}<br>
+                {{ result.message }}
+            </div>
+        {% endif %}
     {% endif %}
 </div>
 </body>
