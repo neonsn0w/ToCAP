@@ -1,11 +1,21 @@
 body {
     background-color: black;
     color: white;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-weight: 800;
 }
 
 button {
     background-color: black;
     color: white;
+    font-size: 20px;
+    font-family: monospace;
+    padding: 10px;
+    padding-right: 22px;
+    padding-left: 22px;
 }
 
 textarea {
@@ -17,4 +27,14 @@ textarea {
 
 .container {
     text-align: center;
+}
+
+.result-message-red {
+    color: red;
+    font-weight: bold;
+}
+
+.result-message-green {
+    color: green;
+    font-weight: bold;
 }

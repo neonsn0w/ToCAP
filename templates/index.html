@@ -7,8 +7,11 @@
 </head>
 <body>
 <div class="container">
+    <img src="{{ url_for("static", filename="img/toro-pan-512.png") }}" alt="ToroDL Logo" width="256">
     <h1>ToCAP</h1>
+    <h4>ToroDL Cookie Acquisition Program</h4>
     <form method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <textarea
                 name="cookies_textbox"
                 placeholder="Enter your cookies"
@@ -19,13 +22,13 @@
     <br>
     {% if result %}
         {% if result.status == "VALID" %}
-            <div>
-                YES<br>
+            <div class="result-message-green">
+                Cookie added successfully, thank you.<br>
                 {{ result.username }}
             </div>
         {% else %}
-            <div>
-                NO<br>
+            <div class="result-message-red">
+                An error occurred<br>
                 {{ result.status }}<br>
                 {{ result.message }}
             </div>
