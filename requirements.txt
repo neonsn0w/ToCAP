@@ -3,3 +3,4 @@ python-dotenv
 flask
 flask-wtf
 flask-limiter
+werkzeug

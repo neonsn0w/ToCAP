@@ -5,12 +5,14 @@ from flask import Flask, render_template, request
 from flask_wtf.csrf import CSRFProtect
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from werkzeug.middleware.proxy_fix import ProxyFix
 from pathlib import Path
 from dotenv import load_dotenv
 
 from cookie_checker import check_instagram_cookies
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 64 * 1024  # Limit to 64 KB
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 limiter = Limiter(get_remote_address, app=app)
 csrf = CSRFProtect(app)
 
